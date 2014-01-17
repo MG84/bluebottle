@@ -25,7 +25,7 @@ class TaskPreviewList(generics.ListAPIView):
     model = Task
     serializer_class = TaskPreviewSerializer
     paginate_by = 8
-    filter_fields = ('status', 'skill', )
+    filter_fields = ('status', 'skill')
 
     def get_queryset(self):
         qs = super(TaskPreviewList, self).get_queryset()
@@ -34,6 +34,10 @@ class TaskPreviewList(generics.ListAPIView):
         if project_slug:
             qs = qs.filter(project__slug=project_slug)
 
+        country = self.request.QUERY_PARAMS.get('country', None)
+        if country:
+            qs = qs.filter(project__country=country)
+
         text = self.request.QUERY_PARAMS.get('text', None)
         if text:
             qs = qs.filter(Q(title__icontains=text) |
@@ -41,7 +45,6 @@ class TaskPreviewList(generics.ListAPIView):
                            Q(end_goal__icontains=text))
 
         ordering = self.request.QUERY_PARAMS.get('ordering', None)
-
         if ordering == 'newest':
             qs = qs.order_by('-created')
         elif ordering == 'deadline':
@@ -57,7 +60,7 @@ class TaskList(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
     paginate_by = 8
     permission_classes = (IsProjectOwnerOrReadOnly,)
-    filter_fields = ('status', 'expertise', )
+    filter_fields = ('status', 'expertise')
 
     def get_queryset(self):
         qs = super(TaskList, self).get_queryset()
