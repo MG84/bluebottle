@@ -254,4 +254,4 @@ class BlueBottleUser(BlueBottleBaseUser):
     """
     class Meta:
         swappable = 'AUTH_USER_MODEL'
-        default_serializer = 'bluebottle.accounts.serializers.UserProfileSerializer'
+        default_serializer = 'bluebottle.bb_accounts.serializers.UserProfileSerializer'

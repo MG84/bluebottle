@@ -113,5 +113,5 @@ class BlueBottleUserAdmin(UserAdmin):
 
     login_as_user.allow_tags = True
 
-if settings.AUTH_USER_MODEL == 'accounts.BlueBottleUser':
+if settings.AUTH_USER_MODEL == 'bb_accounts.BlueBottleUser':
     admin.site.register(BB_USER_MODEL, BlueBottleUserAdmin)

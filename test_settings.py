@@ -116,7 +116,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'bluebottle.utils.context_processors.installed_apps_context_processor',
 )
 
-AUTH_USER_MODEL = 'accounts.BlueBottleUser'
+AUTH_USER_MODEL = 'bb_accounts.BlueBottleUser'
 
 ROOT_URLCONF = 'bluebottle.urls'
 
@@ -167,6 +167,6 @@ TWITTER_HANDLES = {
 }
 
 DEFAULT_TWITTER_HANDLE = TWITTER_HANDLES['nl']
-PROJECTS_PROJECT_MODEL = 'projects.Project'
-TASKS_TASK_MODEL = 'tasks.Task'
-ORGANIZATIONS_ORGANIZATION_MODEL = 'organizations.Organization'
+PROJECTS_PROJECT_MODEL = 'bb_projects.Project'
+TASKS_TASK_MODEL = 'bb_tasks.Task'
+ORGANIZATIONS_ORGANIZATION_MODEL = 'bb_organizations.Organization'
