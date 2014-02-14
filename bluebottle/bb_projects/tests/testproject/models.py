@@ -1,7 +1,6 @@
-from bluebottle.bb_accounts.models import BlueBottleBaseUser
+from bluebottle.bb_projects.models import BaseProject
 
-
-class TestBaseUser(BlueBottleBaseUser):
+class TestBaseProject(BaseProject):
     """
     Instantiate the abstract base model for a user with no additional attributes. Used only for testing.
     """

@@ -114,7 +114,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'bluebottle.accounts.middleware.LocaleMiddleware',
+    'bluebottle.bb_accounts.middleware.LocaleMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -139,7 +139,6 @@ INSTALLED_APPS = (
     'taggit',
     'south',
     'sorl.thumbnail',
-
 
     # BlueBottle applications.
     'bluebottle.bb_accounts',
@@ -214,7 +213,7 @@ LOGGING = {
 # BlueBottle generic models. Override this in your settings if you need to
 # extend any of those models when you are extending BlueBottle for your own
 # purposes.
-AUTH_USER_MODEL = 'bb_accounts.BlueBottleUser'
+# AUTH_USER_MODEL = 'bb_accounts.BlueBottleUser'
 # ORGANIZATIONS_ORGANIZATION_MODEL = 'organizations.Organization'
 # PROJECTS_PROJECT_MODEL = 'projects.Project'
 # TASKS_TASK_MODEL = 'tasks.Task'
