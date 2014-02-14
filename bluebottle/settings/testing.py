@@ -1,20 +1,16 @@
 from .base import *
+from .secrets import *
 
-SECRET_KEY = 'nfjeknfjknsjkfnwjknfklslflaejfleajfeslfjs'
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
-    },
-}
 
 INSTALLED_APPS += (
-    'bluebottle.bb_projects.tests.testproject',
-    'bluebottle.bb_organizations.tests.testorganization',
+    'bluebottle.test',
 )
 
-#AUTH_USER_MODEL = "baseuser.TestBaseUser"
-PROJECTS_PROJECT_MODEL = 'testproject.TestBaseProject'
-ORGANIZATIONS_ORGANIZATION_MODEL = 'testorganization.TestOrganization'
-SOUTH_TESTS_MIGRATE = False
+AUTH_USER_MODEL = 'test.TestBaseUser'
+PROJECTS_PROJECT_MODEL = 'test.TestBaseProject'
+ORGANIZATIONS_ORGANIZATION_MODEL = 'test.TestOrganization'
+TASKS_TASK_MODEL = 'test.TestTask'
+
+SOUTH_TESTS_MIGRATE = True
+
+ROOT_URLCONF = 'bluebottle.urls'

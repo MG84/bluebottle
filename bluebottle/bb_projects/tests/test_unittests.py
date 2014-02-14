@@ -1,16 +1,14 @@
-from bluebottle.bb_projects.tests.testproject.models import TestBaseProject
-from bluebottle.bb_projects.tests.testproject.test import BaseProjectTestCase
+from django.test import TestCase
 from bluebottle.test.factory_models.projects import ProjectFactory
+from bluebottle.bb_projects import get_project_model
 
-class BaseProjectTests(BaseProjectTestCase):
-    """
-    Demo TestCase for the abstract base project class
-    """
-    def test_demo_test(self):
-        self.assertEquals(TestBaseProject.objects.all().count(), 0)
-        obj = ProjectFactory.create()
-        self.assertEquals(TestBaseProject.objects.all().count(), 1)
+PROJECT_MODEL = get_project_model()
 
-        model_fields = ['country', 'created', 'description', 'favorite', u'id', 'image', 'owner',
-                        'pitch', 'slug', 'status', 'theme', 'updated', 'title']
-        self.assertEquals(cmp(model_fields, obj._meta.get_all_field_names()), 1)
+class TestProjectTestCase(TestCase):
+    def setUp(self):
+            pass
+
+    def test_fake(self):
+        self.assertEquals(PROJECT_MODEL.objects.count(), 0)
+        project = ProjectFactory.create()
+        self.assertEquals(PROJECT_MODEL.objects.count(), 1)
