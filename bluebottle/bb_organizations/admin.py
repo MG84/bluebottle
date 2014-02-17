@@ -32,15 +32,15 @@ class OrganizationAdmin(admin.ModelAdmin):
 
     inlines = (OrganizationMemberInline, OrganizationDocumentInline)
 
-    search_fields = ('name', 'description')
+    search_fields = ('name', 'email') #'description'
 
-    fields = ('name', "description", 'email','phone_number', 'website', 'twitter', 'facebook', 'skype', 'slug')
+    fields = ('name', 'email', 'phone_number', 'website', 'twitter', 'facebook', 'skype', 'slug') #"description",
 
 admin.site.register(ORGANIZATION_MODEL, OrganizationAdmin)
 
 
 class OrganizationMemberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'function', 'organization')
+    list_display = ('user', 'function') #'organization'
     list_filter = ('function',)
     raw_id_fields = ('user', )
     search_fields = ('user__first_name', 'user__last_name',

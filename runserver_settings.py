@@ -70,7 +70,7 @@ INSTALLED_APPS = (
     'templatetag_handlebars',
 
     # Bluebottle apps
-    'bluebottle.accounts',
+    # 'bluebottle.accounts',
     'bluebottle.utils',
     'bluebottle.common',
     'bluebottle.contentplugins',

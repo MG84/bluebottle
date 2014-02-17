@@ -53,10 +53,10 @@ class TaskAdmin(admin.ModelAdmin):
     )
     # ordering
     fields = (
-        'title', 'description', 'end_goal', 'location',
+        'title', 'description', # 'location', 'end_goal'
         'skill', 'time_needed',
         'status', 'date_status_change',
-        'people_needed',
+        #'people_needed',
         'project', 'author',
         'tags',
         'deadline',
